@@ -31,7 +31,7 @@ contract Airdrop {
     }
 
     // Events
-    event NewSubscriber(address beneficiary, uint256 amount);
+    event NewAirdropWinner(address beneficiary, uint256 amount);
 
     // Constructor
     constructor(address token) {
@@ -59,6 +59,7 @@ contract Airdrop {
                     amountToTransfer
                 )
             );
+			emit NewAirdropWinner(subscribers[i], amountToTransfer);
         }
 
         return true;
